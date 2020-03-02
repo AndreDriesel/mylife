@@ -1,24 +1,27 @@
 import { Component } from '@angular/core';
 
-import { NavController } from '@ionic/angular';
+import { NavController, NavParams } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-category',
+  templateUrl: 'category.page.html',
+  styleUrls: ['category.page.scss']
 })
-export class Tab1Page {
+export class CategoryPage {
   loremImgSub: any;
   loremImgs: any;
 
   constructor(
     public httpClient: HttpClient,
-    private navCtrl: NavController
+    private navController: NavController,
+    private navParams: NavParams
   ) { }
 
   ionViewWillEnter() {
     this.loadImages();
+    const category = this.navParams.get('category');
+    console.log(category);
   }
 
   loadImages() {
@@ -31,11 +34,6 @@ export class Tab1Page {
       });
       this.loremImgs = data;
     });
-  }
-
-  nextPage(category: any) {
-    console.log(category);
-    this.navCtrl.navigateForward('/tabs/tab1/category', category);
   }
 
 }

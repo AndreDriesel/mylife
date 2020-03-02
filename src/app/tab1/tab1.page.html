@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      dein Profil
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,72 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">dein Profil</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-row class="ion-text-center">
+
+      <ion-col>
+        <ion-avatar class="profil-avatar">
+          <img src="../../assets/images/av_doreen">
+        </ion-avatar>
+      </ion-col>
+
+      <ion-col class="ion-align-self-center">
+        <div class="profil-text-top">12</div>
+        <div class="profil-text-bottom">Kategorien</div>
+      </ion-col>
+
+      <ion-col class="ion-align-self-center">
+        <div class="profil-text-top">40</div>
+        <div class="profil-text-bottom">Fotos</div>
+      </ion-col>
+
+      <ion-col class="ion-align-self-center">
+        <div class="profil-text-top">12.492</div>
+        <div class="profil-text-bottom">Abonnenten</div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <!--<ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-avatar>
+          <img src="../../assets/images/av_doreen">
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="9">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+            <ion-col><ion-skeleton-text animated></ion-skeleton-text></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Kategorien</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of loremImgs; index as i" (click)="nextPage(item)" detail>
+      <ion-thumbnail slot="start">
+        <img [src]="item.imgPath">
+      </ion-thumbnail>
+      <ion-label>Kategorie {{ i + 1 }}</ion-label>
+      <ion-note slot="end" mode="ios">{{ item.random }}</ion-note>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
