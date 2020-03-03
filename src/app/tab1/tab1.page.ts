@@ -27,7 +27,7 @@ export class Tab1Page {
       console.log(data);
       data.forEach(element => {
         element.random = Math.floor(Math.random() * 10) + 1 ;
-        element.imgPath = 'https://picsum.photos/id/' + element.id + '/200/200';
+        element.imgPath = 'https://picsum.photos/id/' + element.id + '/100/100';
       });
       this.loremImgs = data;
     });

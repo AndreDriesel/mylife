@@ -1,7 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab 3
+      Status
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +12,56 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Status</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card *ngFor="let people of peoples">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="people.picture.thumbnail">
+        <!-- <img [src]="'http://placeimg.com/50/50/people?' + number"> -->
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ people.name.first }} {{ people.name.last }}</h3>
+        <p>{{ people.dob.date | date:'dd. MMM yyyy' }}</p>
+      </ion-label>
+    </ion-item>
+  
+    <img [src]="people.imgPath">
+    <!-- <img [src]="'https://picsum.photos/600/200?' + number"> -->
+
+    <ion-card-header>
+      <ion-card-title>{{ people.location.state }}</ion-card-title>
+      <ion-card-subtitle>{{ people.location.city }} {{ people.location.country }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis mollis ligula sed ultrices.
+    </ion-card-content>
+  
+    <ion-footer>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button size="small" fill="clear" expand="full">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-label>1.5k</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col  class="ion-text-center">
+          <ion-button size="small" fill="clear" expand="full">
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+            <ion-label>24</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col  class="ion-text-center">
+          <ion-button size="small" fill="clear" expand="full">
+            <ion-icon name="time-outline"></ion-icon>
+            <ion-label>vor 11h</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
 </ion-content>
